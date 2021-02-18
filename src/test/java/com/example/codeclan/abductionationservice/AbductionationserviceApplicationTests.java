@@ -1,8 +1,10 @@
 package com.example.codeclan.abductionationservice;
 
 import com.example.codeclan.abductionationservice.models.Abductee;
+import com.example.codeclan.abductionationservice.models.Spacecraft;
 import com.example.codeclan.abductionationservice.models.Species;
 import com.example.codeclan.abductionationservice.repositories.AbducteeRepository;
+import com.example.codeclan.abductionationservice.repositories.SpacecraftRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,6 +16,9 @@ class AbductionationserviceApplicationTests {
 
 	@Autowired
 	AbducteeRepository abducteeRepository;
+
+	@Autowired
+	SpacecraftRepository spacecraftRepository;
 
 	@Test
 	void contextLoads() {
@@ -28,6 +33,12 @@ class AbductionationserviceApplicationTests {
 		abducteeRepository.save(decapodian001);
 		abducteeRepository.save(omecronian001);
 //		assertEquals("HUMAN", human001.getSpecies().toString());
+	}
+
+	@Test
+	public void createSpacecraft(){
+		Spacecraft scootyPuffJr = new Spacecraft("Scooty Puff Junior", 1);
+		spacecraftRepository.save(scootyPuffJr);
 	}
 
 }
