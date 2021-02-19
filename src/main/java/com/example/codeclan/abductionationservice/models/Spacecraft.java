@@ -24,7 +24,7 @@ public class Spacecraft {
     public Spacecraft(String name, int cellCapacity) {
         this.name = name;
         this.cellCapacity = cellCapacity;
-        this.freshMeat = freshMeat;
+        this.freshMeat = new ArrayList<>();
     }
 
     public Long getId() {

@@ -1,11 +1,9 @@
 package com.example.codeclan.abductionationservice;
 
-import com.example.codeclan.abductionationservice.models.Abductee;
-import com.example.codeclan.abductionationservice.models.Mothership;
-import com.example.codeclan.abductionationservice.models.Spacecraft;
-import com.example.codeclan.abductionationservice.models.Species;
+import com.example.codeclan.abductionationservice.models.*;
 import com.example.codeclan.abductionationservice.repositories.AbducteeRepository;
 import com.example.codeclan.abductionationservice.repositories.MothershipRepository;
+import com.example.codeclan.abductionationservice.repositories.PlanetRepository;
 import com.example.codeclan.abductionationservice.repositories.SpacecraftRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +21,9 @@ class AbductionationserviceApplicationTests {
 	AbducteeRepository abducteeRepository;
 
 	@Autowired
+	PlanetRepository planetRepository;
+
+	@Autowired
 	SpacecraftRepository spacecraftRepository;
 
 	@Test
@@ -37,7 +38,16 @@ class AbductionationserviceApplicationTests {
 		abducteeRepository.save(human001);
 		abducteeRepository.save(decapodian001);
 		abducteeRepository.save(omecronian001);
-//		assertEquals("HUMAN", human001.getSpecies().toString());
+	}
+
+	@Test
+	public void createPlanet(){
+		Planet earth = new Planet("Earth", Species.HUMAN);
+		Planet decapod10 = new Planet("Decapod 10", Species.DECAPODIAN);
+		Planet omecronPersei8 = new Planet("Omecron Persei 8", Species.OMECRONIAN);
+		planetRepository.save(earth);
+		planetRepository.save(decapod10);
+		planetRepository.save(omecronPersei8);
 	}
 
 	@Test
